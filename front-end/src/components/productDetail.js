@@ -1,15 +1,15 @@
 import React from 'react';
-import imgURL from '../assets/avatar.jpg';
 import '../style/style.css'
+// import imgURL from '../picture/kele.jpg'
 
-class Head extends React.Component {
-  render() {
-    return (
-      <div>
-        <img src={imgURL} alt="avatar" />
-      </div>
-    );
-  }
-}
 
-export default Head;
+const ProductDetail = ({imgURL,name,price,id}) => (
+    <div className='pro'>        
+        <img src={imgURL} alt='product' />    
+        <p>Name:{name}</p>
+        <p>Price:{price}</p>
+        <p>Id:{id}</p>
+    </div>
+);
+
+export default ProductDetail;

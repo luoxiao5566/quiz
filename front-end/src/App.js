@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router,Switch,Route, NavLink} from 'react-router-dom';
 import './App.css';
+import Home from './components/home';
 import './style/style.css'
 
 class App extends Component{
@@ -34,7 +35,7 @@ class App extends Component{
         </ul>
         <div className="app">
           <Switch>
-                        
+            <Route  exact path='/' component={Home} />            
           </Switch>           
         </div>
       </Router>
