@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class ProductControllerTest {
     public void should_add_product() throws  Exception{
         Product product = Product.builder().
                 imgURL("F:/TWU-C/img/apple.png").
-                price("100元/瓶").proName("apple").build();
+                price(100).proName("apple").unit("个").build();
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(product);
         mockMvc.perform(post("/pd/add").content(jsonString).contentType(MediaType.APPLICATION_JSON))
@@ -44,9 +45,10 @@ public class ProductControllerTest {
         assertNotNull(productPOS);
         assertEquals(1,productPOS.size());
         assertEquals("F:/TWU-C/img/apple.png",productPOS.get(0).getImgURL());
-        assertEquals("100元/瓶",productPOS.get(0).getPrice());
+        assertEquals(100,productPOS.get(0).getPrice());
         assertEquals("apple",productPOS.get(0).getProName());
         assertEquals(1,productPOS.get(0).getId());
+        assertEquals("个",productPOS.get(0).getUnit());
     }
 
 

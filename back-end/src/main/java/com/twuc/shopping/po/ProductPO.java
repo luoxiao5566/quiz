@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
@@ -25,7 +26,9 @@ public class ProductPO {
     @NotNull
     private String proName;
     @NotNull
-    private String price;
+    private double price;
+    @NotNull
+    private String unit;
     @NotNull
     private String imgURL;
 }

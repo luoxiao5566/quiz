@@ -16,7 +16,8 @@ public class ProductService {
     public void addProduct(Product product) {
         ProductPO productPO = ProductPO.builder().proName(product.getProName())
                 .price(product.getPrice())
-                .imgURL(product.getImgURL()).build();
+                .imgURL(product.getImgURL())
+                .unit(product.getUnit()).build();
         productRepository.save(productPO);
     }
 }
