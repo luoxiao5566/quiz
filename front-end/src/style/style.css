@@ -1,0 +1,13 @@
+.head {
+    display: block;
+    width: auto;
+    height: 90px;
+    background-color: #cccccc;
+}
+
+.head li {
+    display: inline-block;    
+    margin-right: 40px;
+    float: right;
+    line-height: 90px;      
+}

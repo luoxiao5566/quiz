@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter as Router,Switch,Route, NavLink} from 'react-router-dom';
 import './App.css';
+import './style/style.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render() {
+    return (
+      <Router>
+        <ul className='head'>
+            <li>
+              <NavLink 
+                className='links'                 
+                to='/about-us'
+                activeClassName = 'links1'
+                >+添加商品</NavLink>
+            </li>            
+            <li>
+              <NavLink
+                className='links' 
+                to='/my-profile'
+                activeClassName = 'links1'
+                >订单</NavLink>
+            </li>            
+            <li>
+              <NavLink 
+                className='links' 
+                exact
+                to='/'
+                activeClassName = 'links1'
+                >商城</NavLink>
+            </li>
+            
+        </ul>
+        <div className="app">
+          <Switch>
+                        
+          </Switch>           
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
