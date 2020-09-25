@@ -16,4 +16,6 @@ public class Order {
     private int price;
     private int number;
     private String unit;
+    private int id;
+
 }

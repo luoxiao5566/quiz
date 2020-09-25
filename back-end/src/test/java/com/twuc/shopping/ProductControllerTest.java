@@ -1,6 +1,7 @@
 package com.twuc.shopping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.twuc.shopping.domain.Order;
 import com.twuc.shopping.domain.Product;
 import com.twuc.shopping.po.ProductPO;
 import com.twuc.shopping.repository.ProductRepository;
@@ -39,7 +40,7 @@ public class ProductControllerTest {
                 price(100).proName("apple").unit("个").build();
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(product);
-        mockMvc.perform(post("/pd/add").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(post("/pd/addPro").content(jsonString).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
         List<ProductPO> productPOS = productRepository.findAll();
         assertNotNull(productPOS);
@@ -51,5 +52,21 @@ public class ProductControllerTest {
         assertEquals("个",productPOS.get(0).getUnit());
     }
 
-
+    @Test
+    public void should_get_all_product() throws Exception {
+        Product product = Product.builder().
+                imgURL("F:/TWU-C/img/apple.png").
+                price(100).proName("apple").unit("个").build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonString = objectMapper.writeValueAsString(product);
+        mockMvc.perform(post("/pd/addPro").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+        mockMvc.perform(get("/pd/getPro"))
+                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$[0].proName",is("apple")))
+                .andExpect(jsonPath("$[0].imgURL",is("F:/TWU-C/img/apple.png")))
+                .andExpect(jsonPath("$[0].price",is(100)))
+                .andExpect(jsonPath("$[0].unit",is("个")))
+                .andExpect(status().isOk());
+    }
 }

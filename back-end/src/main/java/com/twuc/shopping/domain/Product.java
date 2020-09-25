@@ -17,7 +17,7 @@ public class Product {
     @NotNull
     private String proName;
     @NotNull
-    private double price;
+    private int price;
     @NotNull
     private String unit;
     @NotNull

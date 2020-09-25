@@ -19,10 +19,17 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @PostMapping("/pd/add")
+    @PostMapping("/pd/addPro")
     public ResponseEntity addProduct(@RequestBody Product product) {
         productService.addProduct(product);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/pd/getPro")
+    public ResponseEntity getALLProduct() {
+        List<Product> allOrder = productService.getAllOrder();
+        return ResponseEntity.ok(allOrder);
+
     }
 
 }
