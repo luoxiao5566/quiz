@@ -1,27 +1,24 @@
 import React from 'react';
-import '../style/style.css';
-import ProductDetail from './productDetail';
-import imgURL from '../picture/kele.jpg'
-
+import './Home.css';
+import ProductDetail from './ProductDetail';
 
 class Home extends React.Component {
-    state = {
-        url:imgURL,
-        name:'kele',
-        price: '3元/瓶',
-        id:1
-    }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <div className='home'>
-        <h1>asdasdsad</h1>
-        <ProductDetail
-            imgURL={this.state.url}
-            name={this.state.name}
-            price={this.state.price}
-            id={this.state.id}
-         />
+        {this.props.goods.map((item) => (
+          <ProductDetail
+            handleCart={this.handleCart}
+            proName={item.proName}
+            price={item.price}
+            key={item.proName}
+            imgURL={item.imgURL}
+          />
+         ))}
       </div>
     );
   }
