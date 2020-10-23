@@ -27,6 +27,10 @@ public class OrderControllerTest {
     MockMvc mockMvc;
     @Autowired
     OrderRepository orderRepository;
+    @BeforeEach
+    public void setUp() {
+        orderRepository.deleteAll();
+    }
 
     @Test
     public void should_add_order() throws Exception {
@@ -41,7 +45,6 @@ public class OrderControllerTest {
         assertEquals("可乐",orderPOS.get(0).getName());
         assertEquals(1,orderPOS.get(0).getPrice());
         assertEquals(2,orderPOS.get(0).getNumber());
-        assertEquals(1,orderPOS.get(0).getId());
         assertEquals("瓶",orderPOS.get(0).getUnit());
     }
 

@@ -32,6 +32,10 @@ public class ProductControllerTest {
     MockMvc mockMvc;
     @Autowired
     ProductRepository productRepository;
+    @BeforeEach
+    public void setUp() {
+        productRepository.deleteAll();
+    }
 
     @Test
     public void should_add_product() throws  Exception{
@@ -48,7 +52,6 @@ public class ProductControllerTest {
         assertEquals("F:/TWU-C/img/apple.png",productPOS.get(0).getImgURL());
         assertEquals(100,productPOS.get(0).getPrice());
         assertEquals("apple",productPOS.get(0).getProName());
-        assertEquals(1,productPOS.get(0).getId());
         assertEquals("个",productPOS.get(0).getUnit());
     }
 

@@ -2,13 +2,8 @@ package com.twuc.shopping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.twuc.shopping.domain.Cart;
-import com.twuc.shopping.domain.Order;
-import com.twuc.shopping.domain.Product;
 import com.twuc.shopping.po.CartPo;
-import com.twuc.shopping.po.OrderPO;
 import com.twuc.shopping.repository.CartRepository;
-import com.twuc.shopping.repository.OrderRepository;
-import com.twuc.shopping.repository.ProductRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
