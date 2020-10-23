@@ -41,7 +41,7 @@ public class OrderControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(order);
         mockMvc.perform(post("/od/addOrder").content(jsonString).contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
         List<OrderPO> orderPOS = orderRepository.findAll();
         assertNotNull(orderPOS);
         assertEquals(1,orderPOS.size());
@@ -58,7 +58,7 @@ public class OrderControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(order);
         mockMvc.perform(post("/od/addOrder").content(jsonString).contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
         mockMvc.perform(get("/od/getOrder"))
                 .andExpect(jsonPath("$",hasSize(1)))
                 .andExpect(jsonPath("$[0].name",is("可乐")))

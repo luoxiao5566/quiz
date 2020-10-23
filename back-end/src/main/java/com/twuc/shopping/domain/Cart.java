@@ -11,10 +11,9 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Cart {
+    @NotNull
     private String name;
-    private int price;
+    @NotNull
     private int number;
-    private String unit;
-    private int id;
 }
