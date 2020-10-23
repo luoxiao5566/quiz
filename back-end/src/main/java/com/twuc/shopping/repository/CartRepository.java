@@ -1,4 +1,12 @@
 package com.twuc.shopping.repository;
 
-public interface CartRepository {
+import com.twuc.shopping.po.CartPo;
+import com.twuc.shopping.po.OrderPO;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface CartRepository extends CrudRepository<CartPo,Integer> {
+    @Override
+    List<CartPo> findAll();
 }

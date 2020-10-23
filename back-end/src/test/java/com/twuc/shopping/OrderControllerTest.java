@@ -2,11 +2,8 @@ package com.twuc.shopping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.twuc.shopping.domain.Order;
-import com.twuc.shopping.domain.Product;
 import com.twuc.shopping.po.OrderPO;
-import com.twuc.shopping.po.ProductPO;
 import com.twuc.shopping.repository.OrderRepository;
-import com.twuc.shopping.repository.ProductRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,10 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-
-import javax.persistence.Table;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
