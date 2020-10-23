@@ -5,10 +5,12 @@ import com.twuc.shopping.domain.Order;
 import com.twuc.shopping.po.CartPo;
 import com.twuc.shopping.po.OrderPO;
 import com.twuc.shopping.repository.CartRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CartService {
     final CartRepository cartRepository;
 
